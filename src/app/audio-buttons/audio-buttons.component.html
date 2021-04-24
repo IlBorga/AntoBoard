@@ -1,0 +1,19 @@
+<br>
+<div class="container mx-auto" style="text-align: center;">
+    <button *ngIf="sovrap==false" type="button" class="btn btn-outline-secondary" (click)="options()">Abilita
+        sovrapposizione audio</button>
+    <button *ngIf="sovrap==true" type="button" class="btn btn-outline-secondary" (click)="options()">Disabilita
+        sovrapposizione audio</button>
+</div>
+<br>
+
+
+<div class="row row-cols-1 row-cols-md-3 g-4" style="margin-left: 2%; margin-right: 2%">
+    <div *ngFor="let sound of sounds" class="col">
+        <div class="card">
+            <div class="card-body mx-auto">
+                <button type="button" class="btn btn-outline-primary" (click)="playAudio(sound.id)">{{sound.nome}}</button>
+            </div>
+        </div>
+    </div>
+</div>
