@@ -3,4 +3,16 @@
     <h1 style="color: white;">Anto Board 2.0</h1>
   </div>
 </nav>
+<nav *ngIf="this.router.url=='/specialaudio'" class="navbar navbar-dark bg-secondary ombra">
+  <div routerLink="/audio" class="mx-auto" style="color: white;">
+    Torna agli audio di Show
+  </div>
+</nav>
+<nav *ngIf="this.router.url=='/audio'||this.router.url=='/'" class="navbar navbar-dark bg-secondary ombra">
+  <div routerLink="/specialaudio" class="mx-auto" style="color: white;">
+    Vai agli audio speciali
+  </div>
+</nav>
+<div [ngStyle]="{background: 'url(/assets/SfondoShow.jpg)', 'background-size': '100%', 'background-attachment':'fixed'}">
 <router-outlet></router-outlet>
+</div>
