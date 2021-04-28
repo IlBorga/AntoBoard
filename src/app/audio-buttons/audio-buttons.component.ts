@@ -93,7 +93,16 @@ export class AudioButtonsComponent implements OnInit {
     { nome: "Ascensore", id: 81 },
   ]
 
-  played = [ new Audio('./assets/1.mp3') ];
+  extrasounds = [
+  { nome: "De André", id: 1001 },
+  { nome: "Minaccia del Maestro", id: 1002 },
+  { nome: "Nascita del muto", id: 1003 },
+  { nome: "Mmgh", id: 1004 },
+  { nome: "Oh yeah", id: 1005 },
+  ]
+
+  pagesounds = [{ nome: "La polizza", id: 1 }];
+  played = [new Audio('./assets/1.mp3')];
 
 
   constructor() {
@@ -101,6 +110,9 @@ export class AudioButtonsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    for (let i = 0; i < 50; i++) {
+      this.pagesounds[i] = this.sounds[i];
+    }
   }
 
   playAudio(id: number): void {
@@ -114,19 +126,38 @@ export class AudioButtonsComponent implements OnInit {
 
   options(): void {
     this.playedAudio.pause();
-    if(this.sovrap == false)
+    if (this.sovrap == false)
       this.sovrap = true;
     else
       this.sovrap = false;
   }
 
   stop(): void {
-    this.played.forEach(function(value){
+    this.played.forEach(function (value) {
       value.pause();
     });
-    this.played=[];
+    this.played = [];
   }
 
-  
+  page(n: number) {
+    this.pagesounds = [];
+    if(n==3){
+      for(let i=0;i<5;i++){
+        this.pagesounds[i] = this.extrasounds[i]; 
+      }
+    }
+    let numprec = (n - 1) * 50;
+    let num = this.sounds.length - numprec;
+    for (let i = 0; i < this.min(num, 50); i++) {
+      this.pagesounds[i] = this.sounds[i + numprec];
+    }
+  }
+
+  min(a: number, b: number): number {
+    if (a < b)
+      return a;
+    else
+      return b;
+  }
 
 }

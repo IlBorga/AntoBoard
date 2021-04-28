@@ -1,8 +1,20 @@
+<nav class="navbar navbar-dark bg-secondary ombra">
+    <div class="container-fluid">
+        <div class="mx-auto" style="color: white;">
+            Pagine:&nbsp;&nbsp;
+            <button (click)="page(1)" class="btn btn-outline-light me-3">1</button>
+            <button (click)="page(2)" class="btn btn-outline-light me-3">2</button>
+            <button (click)="page(3)" class="btn btn-outline-light me-3">Extra</button>
+        </div>
+    </div>
+</nav>
 <br>
 <div class="container mx-auto" style="text-align: center;">
-    <button *ngIf="sovrap==false" type="button" class="btn btn-light btn-outline-secondary ombra" (click)="options()">Abilita
+    <button *ngIf="sovrap==false" type="button" class="btn btn-light btn-outline-secondary ombra"
+        (click)="options()">Abilita
         sovrapposizione audio</button>
-    <button *ngIf="sovrap==true" type="button" class="btn btn-light btn-outline-secondary ombra" (click)="options()">Disabilita
+    <button *ngIf="sovrap==true" type="button" class="btn btn-light btn-outline-secondary ombra"
+        (click)="options()">Disabilita
         sovrapposizione audio</button>
 </div>
 <br>
@@ -23,8 +35,9 @@
 
 
 <div class="row row-cols-2 row-cols-md-3 g-4" style="margin-left: 2%; margin-right: 2%; margin-top: 2%;">
-    <div *ngFor="let sound of sounds" class="col" style="text-align: center;">
-        <button type="button" class="btn btn-light btn-outline-primary ombra" (click)="playAudio(sound.id)">{{sound.nome}}</button>
+    <div *ngFor="let sound of pagesounds" class="col" style="text-align: center;">
+        <button type="button" class="btn btn-light btn-outline-primary ombra"
+            (click)="playAudio(sound.id)">{{sound.nome}}</button>
     </div>
 </div>
 <br>

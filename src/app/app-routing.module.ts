@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AudioButtonsComponent } from './audio-buttons/audio-buttons.component';
-import { SpecialAudioButtonsComponent } from './special-audio-buttons/special-audio-buttons.component';
 
 const routes: Routes = [ { path:"audio", component:AudioButtonsComponent },
-{ path:"", component:AudioButtonsComponent },
-{ path:"specialaudio", component:SpecialAudioButtonsComponent },];
+{ path:"", component:AudioButtonsComponent },];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
